@@ -323,7 +323,7 @@ void hourInc(void){
 		
 		//Increase hours by 1 ensuring not to overflow
 		hours++;
-		hours = hformat(hours);
+		hours = hFormat(hours);
 		
 		hours = decCompensation(hours);
 		
