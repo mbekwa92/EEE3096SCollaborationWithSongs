@@ -341,6 +341,8 @@ void hourInc(void){
  * Software Debouncing should be used
  */
 void minInc(void){
+	
+	//debounce
 	long interruptTime = millis();
 
 	if (interruptTime - lastInterruptTime>200){
@@ -356,8 +358,7 @@ void minInc(void){
 		mins++;
 		
 		mins = decCompensation(mins);
-		
-		
+			
 		//Write minutes back to the RTC
 		wiringPiI2CWriteReg8(RTC,MIN,mins);
 		
@@ -368,6 +369,8 @@ void minInc(void){
 //This interrupt will fetch current time from another script and write it to the clock registers
 //This functions will toggle a flag that is checked in main
 void toggleTime(void){
+	
+	//debounce
 	long interruptTime = millis();
 
 	if (interruptTime - lastInterruptTime>200){
